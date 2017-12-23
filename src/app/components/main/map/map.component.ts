@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import * as mapboxgl from 'mapbox-gl';
 import * as $ from 'jquery';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 @Component({
   selector: 'app-map',
@@ -11,6 +12,7 @@ import * as $ from 'jquery';
 export class MapComponent implements OnInit {
 
   map: mapboxgl.Map;
+  geocoder: MapboxGeocoder;
   style = environment.mapbox.style;
   lat = 32.8;
   long = -96.8;
@@ -36,14 +38,20 @@ export class MapComponent implements OnInit {
     this.map.resize();
 
     var nav = new mapboxgl.NavigationControl();
-    this.map.addControl(nav, 'top-left');
+    this.map.addControl(nav, 'top-right');
 
     this.map.on('load', this.initializeLayer.bind(this));
+
+    // this.geocoder = new MapboxGeocoder({
+    //   accessToken: environment.mapbox.accessToken,
+    //   placeholder: "Search SIO"    
+    // });
+
+    // this.map.addControl(this.geocoder, 'top-left');
   }
 
   private initializeLayer(){
     var handleimage = function(error,image){
-      console.log("loaded");
       if(error) throw error;
       this.map.addImage("pin",image);
     };
@@ -100,6 +108,7 @@ export class MapComponent implements OnInit {
 
     // Change it back to a pointer when it leaves.
     this.map.on('mouseleave', 'SIOLocations', this.mouseLeave.bind(this));
+    
   }
 
   private locationClick(event){

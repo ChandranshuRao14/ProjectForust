@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'navlink',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navlink.component.css']
 })
 export class NavlinkComponent implements OnInit {
+
+  @Input() name: string;
+  @Input() out: string;
+  isActive: boolean = true;
 
   constructor() { }
 

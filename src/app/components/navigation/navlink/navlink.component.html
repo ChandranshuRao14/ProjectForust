@@ -1,1 +1,10 @@
-<a class="navbar-brand" href="#">Forust App</a>
+<div *ngIf="isActive">
+    <li class="nav-item active">
+        <a class="nav-link" href="#">{{name}}<span class="sr-only">(current)</span></a>
+    </li>
+</div>
+<div *ngIf="!isActive">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">{{name}}</a>
+        </li>
+</div>
