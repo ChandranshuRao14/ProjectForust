@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import * as mapboxgl from 'mapbox-gl';
 import * as $ from 'jquery';
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 @Component({
   selector: 'app-map',
@@ -12,7 +11,6 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 export class MapComponent implements OnInit {
 
   map: mapboxgl.Map;
-  geocoder: MapboxGeocoder;
   style = environment.mapbox.style;
   lat = 32.8;
   long = -96.8;
@@ -41,13 +39,6 @@ export class MapComponent implements OnInit {
     this.map.addControl(nav, 'top-right');
 
     this.map.on('load', this.initializeLayer.bind(this));
-
-    // this.geocoder = new MapboxGeocoder({
-    //   accessToken: environment.mapbox.accessToken,
-    //   placeholder: "Search SIO"    
-    // });
-
-    // this.map.addControl(this.geocoder, 'top-left');
   }
 
   private initializeLayer(){
