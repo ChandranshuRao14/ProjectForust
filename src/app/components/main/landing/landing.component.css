@@ -19,10 +19,10 @@ body{margin:40px;}
   border-radius: 25px;
 }
 .btn-circle.btn-xl {
-  width: 70px;
-  height: 70px;
+  width: 400px;
+  height: 400px;
   padding: 10px 16px;
-  font-size: 24px;
+  font-size: 48px;
   line-height: 1.33;
-  border-radius: 35px;
+  border-radius: 200px;
 }
