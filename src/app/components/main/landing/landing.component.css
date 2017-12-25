@@ -4,7 +4,7 @@ body{margin:40px;}
 .btn-circle {
   width: 30px;
   height: 30px;
-  text-align: center;
+  /*text-align: center;*/
   padding: 6px 0;
   font-size: 12px;
   line-height: 1.428571429;
@@ -22,6 +22,7 @@ body{margin:40px;}
   width: 400px;
   height: 400px;
   padding: 10px 16px;
+  padding-top: 250px;
   font-size: 48px;
   line-height: 1.33;
   border-radius: 200px;
